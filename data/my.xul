@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<window xmlns="http://www.mozilla.org/keymaster/gat...re.is.only.xul" />
+
+<page id = "my">
+<tabbox>
+<tabs>
+				<tab label="Mail"/>
+				    <tab label="News"/>
+				  </tabs>
+				  <tabpanels>
+				    <tabpanel id="mailtab">
+				      <checkbox label="Automatically check for mail"/>
+				    </tabpanel>
+				    <tabpanel id="newstab">
+				      <button label="Clear News Buffer"/>
+				    </tabpanel>
+				  </tabpanels>
+				</tabbox>
+				</page>

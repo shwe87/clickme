@@ -1,0 +1,111 @@
+const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+window.addEventListener('click', function(event) {
+  if(event.button == 0 && event.shiftKey == false)
+    self.port.emit('left-click');
+ 
+  if(event.button == 2 || (event.button == 0 && event.shiftKey == true)){
+  	console.log('clicked!');
+    self.port.emit('click');
+    }
+    event.preventDefault();
+}, true);
+
+
+self.on('click', function (node, data) {
+	console.log('clicked: ' + node.nodeName);
+});
+
+
+/*
+function create(window, details) {
+
+  let { document } = window;
+
+
+
+  let menuitem = document.createElementNS(XUL_NS, 'menuitem');
+  menuitem.setAttribute('id', details.id);
+  menuitem.setAttribute('label', details.title);
+  menuitem.setAttribute('sidebarurl', details.sidebarurl);
+  menuitem.setAttribute('checked', 'false');
+  menuitem.setAttribute('type', 'checkbox');
+  menuitem.setAttribute('group', 'sidebar');
+  menuitem.setAttribute('autoCheck', 'false');
+
+  document.getElementById('viewSidebarMenu').appendChild(menuitem);
+
+  return menuitem;
+}
+
+
+
+function showSidebar(window, sidebar, newURL) {
+  window = window || getMostRecentBrowserWindow();
+
+  let { promise, resolve, reject } = defer();
+  let model = modelFor(sidebar);
+
+  if (!isPrivateBrowsingSupported && isWindowPrivate(window)) {
+    reject(Error('You cannot show a sidebar on private windows'));
+  }
+  else {
+    sidebar.once('show', resolve);
+
+    let menuitem = window.document.getElementById(makeID(model.id));
+    menuitem.setAttribute('checked', true);
+
+    window.openWebPanel(model.title, newURL || model.url);
+  }
+
+  return promise;
+}
+
+var item = create(window,{'id':'twitter-sidebar','title':'Twitter','sidebarurl':'www.urjc.es'});
+var p = item.showSidebar(window,item,'www.hotmail.com');
+
+
+
+/*
+function getClick(){
+	let {document} = window;
+	
+	let tabButton = window.getElementById('new-tab-button');
+	tabButton.onClick = 
+
+
+
+
+}
+
+*/
+
+/*
+function createMenuItem(aLabel) {
+  //const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+  var item = '';
+ try{
+  var item = window.createElementNS(XUL_NS, 'menuitem'); // create a new XUL menuitem
+  console.log('here');
+  item.setAttribute('label', aLabel);
+  }
+  catch (e){console.log(e.toString())}
+  return item;
+}
+var popup = document.getElementById("myPopup"); // a <menupopup> element
+/*var first = createMenuItem("First item");
+var last = createMenuItem("Last item");
+popup.insertBefore(first, popup.firstChild);
+popup.appendChild(last);*/
+
+
+let menu = window.document.getElementById("tabContextMenu");
+        let newtab = window.document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul","menuitem");
+            newtab.setAttribute("id", "contexttab-newtab");
+            newtab.setAttribute("label", _("newtab_string"));
+            newtab.setAttribute("accesskey", _("newtabaccesskey_string"));
+            newtab.setAttribute("oncommand", "window.location.href='http://www.example.com'");
+            menu.insertBefore(newtab, menu.firstChild);
+
+
+

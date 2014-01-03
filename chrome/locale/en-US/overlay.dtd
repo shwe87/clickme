@@ -1,0 +1,8 @@
+<!ENTITY browsing_synch.label "Your localized menuitem">
+<!ENTITY browsing_synchContext.label "Your Menuitem">
+<!ENTITY browsing_synchContext.accesskey "Y">
+<!ENTITY browsing_synchToolbarButton.label "Your Toolbar Button">
+<!ENTITY browsing_synchToolbarButton.tooltip "This is your toolbar button!">
+<!ENTITY browsing_synchSidebar.label "Your Sidebar">
+<!ENTITY browsing_synchToolbar.name  "example">
+<!ENTITY browsing_synchToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &browsing_synchToolbar.name;">

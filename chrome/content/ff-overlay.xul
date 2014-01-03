@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://browsing_synch/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://browsing_synch/locale/overlay.dtd">
+<overlay id="browsing_synch-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="ff-overlay.js"/>
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="browsing_synch-strings" src="chrome://browsing_synch/locale/overlay.properties"/>
+  </stringbundleset>
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="browsing_synch-toolbar-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
+                   label="&browsing_synchToolbarButton.label;" tooltiptext="&browsing_synchToolbarButton.tooltip;"
+                   oncommand="browsing_synch.onToolbarButtonCommand()"/>
+  </toolbarpalette>
+  <popup id="contentAreaContextMenu">
+    <menuitem id="context-browsing_synch" label="&browsing_synchContext.label;"
+              accesskey="&browsing_synchContext.accesskey;"
+              insertafter="context-stop"
+              oncommand="browsing_synch.onMenuItemCommand(event)"/>
+  </popup>
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="browsing_synch-hello" label="&browsing_synch.label;"
+              oncommand="browsing_synch.onMenuItemCommand(event);"/>
+  </menupopup>
+  <menupopup id="viewSidebarMenu">
+    <menuitem observes="viewSidebar_browsing_synch"/>
+  </menupopup>
+  <broadcasterset id="mainBroadcasterSet">
+    <broadcaster id="viewSidebar_browsing_synch"
+                 label="&browsing_synchSidebar.label;"
+                 autoCheck="false"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://browsing_synch/content/ff-sidebar.xul"
+                 sidebartitle="&browsing_synchSidebar.label;"
+                 oncommand="toggleSidebar('viewSidebar_browsing_synch');"/>
+  </broadcasterset>
+  <toolbox id="navigator-toolbox">
+    <toolbar class="chromeclass-toolbar" toolbarname="&browsing_synchToolbar.name;" customizable="true" id="browsing_synch-toolbar">
+      <label value="&browsing_synchToolbar.label;"/>
+    </toolbar>
+  </toolbox>
+</overlay>

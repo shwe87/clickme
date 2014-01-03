@@ -1,0 +1,5 @@
+content   browsing_synch                 chrome/content/
+skin      browsing_synch   classic/1.0   chrome/skin/
+locale    browsing_synch   en-US         chrome/locale/en-US/
+overlay	chrome://browser/content/browser.xul	chrome://browsing_synch/content/ff-overlay.xul
+style	chrome://global/content/customizeToolbar.xul	chrome://browsing_synch/skin/overlay.css
